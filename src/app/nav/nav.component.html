@@ -16,15 +16,6 @@
                     <a class="nav-link"(click)="logout()" tabindex="-1">Log out</a>
                 </li>
             </ul>
-            <div class="dropdown" *ngIf="currentUser$ | async">
-                <a class="dropdown-toggle text-light" dropdownToggle>Welcome User</a>
-                <div class="dropdown-menu mt-3" dropdownMenu>
-                    <a class="dropdown-item">Edit profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" (click)="logout()">log out</a>
-                </div>
-            </div>
-
             <form *ngIf="(currentUser$ | async) === null" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
                 <input name="username" [(ngModel)]="model.userName" class="form-control me-2" type="text" placeholder="User Name">&nbsp;
                 <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password" placeholder="Password">&nbsp;
